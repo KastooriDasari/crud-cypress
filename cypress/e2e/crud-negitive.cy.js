@@ -1,0 +1,37 @@
+describe('empty spec', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/')
+  })
+  it('passes', () => {
+    // cy.get('#eid').type('')
+    // cy.get('#ename').type('Kastoori')
+    // cy.get('#eemail').type('kastoori@gmail.com')
+    // cy.get('#epsw').type('kastoori')
+    cy.get('#btn1').click()
+    cy.on('window:alert',(a) => {expect(a).to.contains("enter your employeeID")})
+  })
+  it('passes', () => {
+    cy.get('#eid').type('5065')
+    // cy.get('#ename').type('')
+    // cy.get('#eemail').type('kastoori@gmail.com')
+    // cy.get('#epsw').type('kastoori')
+    cy.get('#btn1').click()
+    cy.on('window:alert',(a) => {expect(a).to.contains("enter your employee name")})
+  })
+  it('passes', () => {
+    cy.get('#eid').type('5065')
+    cy.get('#ename').type('Kastoori')
+    // cy.get('#eemail').type('')
+    // cy.get('#epsw').type('kastoori')
+    cy.get('#btn1').click()
+    cy.on('window:alert',(a) => {expect(a).to.contains("enter your employee email")})
+  })
+  it('passes', () => {
+    cy.get('#eid').type('5065')
+    cy.get('#ename').type('Kastoori')
+    cy.get('#eemail').type('kastoori@gmail.com')
+    // cy.get('').type('')
+    cy.get('#btn1').click()
+    cy.on('window:alert',(a) => {expect(a).to.contains("enter your employee password")})
+  })
+})
